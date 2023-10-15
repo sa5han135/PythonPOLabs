@@ -1,10 +1,7 @@
 list_players = ["Маша", "Петя", "Саша", "Оля", "Кирилл", "Коля"]
 
-len(list_players)  # Нахождение количества игроков, но без использования print()
-
-first_team = list_players[0:3]  # Создадим первую команду слайсированием
+average_len = int(len(list_players) / 2)  # Создадим переменную, равную половине длины строки
+first_team = list_players[0:average_len]  # Найдем первую команду
 print(first_team)
-second_team = list_players[3:6]  # Создадим вторую команду слайсированием
+second_team = list_players[average_len:len(list_players)]  # Найдем вторую команду
 print(second_team)
-
-
