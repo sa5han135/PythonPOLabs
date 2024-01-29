@@ -29,20 +29,19 @@ class Book:
 class Library:
 
     def __init__(self, books=None):
-        self.books = books or []
+        self.books = [] if books is None else books
 
     def get_next_book_id(self):
-        new_id = 1
-        for books in self.books:
-            new_id = books.id + 1
-        return new_id
+        if len(self.books) == 0:
+            return 1
+        else:
+            return self.books[-1].id + 1
 
     def get_index_by_book_id(self, lib_id):
-        for books in self.books:
-            if books.id == lib_id:
-                return self.books.index(books)
-            else:
-                raise ValueError("Книги с запрашиваемым id не существует")
+        for key, book in enumerate(self.books):
+            if book.id == lib_id:
+                return key
+        raise ValueError("Книги с запрашиваемым id не существует")
 
 
 if __name__ == '__main__':
